@@ -15,6 +15,9 @@ enum Event {
 protocol Coordinator {
     var navifationController: UINavigationController? { get set }
     
+    // coordinator can also owned other coordinator
+    var children: [Coordinator]? { get set }
+    
     // 其他 VC 告訴 coordinator 有事發生，需要處理
     func eventOccured(with type: Event)
     
@@ -23,6 +26,6 @@ protocol Coordinator {
 }
 
 // 所有的 VC 都需要有個中繼的 coordinator
-protocol Coordinatiog {
+protocol Coordinating {
     var coordinator: Coordinator? { get set }
 }

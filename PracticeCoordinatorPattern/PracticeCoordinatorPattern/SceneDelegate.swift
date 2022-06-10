@@ -20,6 +20,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let coordinator = MainCoordinator()
         coordinator.navifationController = navVC
         
+        // adjust navVC barTintColor
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .white
+        navVC.navigationBar.standardAppearance = appearance
+        navVC.navigationBar.scrollEdgeAppearance = appearance
+        
         let window = UIWindow(windowScene: windowScene)
         window.rootViewController = navVC
         window.makeKeyAndVisible()
